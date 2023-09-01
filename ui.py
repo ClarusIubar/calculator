@@ -1,4 +1,4 @@
-# ch 6.3.3 ui.py
+# ch 6.3.1 ui.py
 
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout,
                              QMessageBox, QPlainTextEdit, QHBoxLayout,
