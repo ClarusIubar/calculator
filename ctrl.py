@@ -1,4 +1,4 @@
-# ch 6.6.2 ctrl.py
+# ch 7.5.2 ctrl.py
 
 class Control:
 
@@ -38,4 +38,7 @@ class Control:
         return a/b
 
     def pow(self, a, b):
-        return pow(a, b) 
+        if (a==0):
+            return 0
+        else :
+            return pow(a, b) 
