@@ -1,4 +1,4 @@
-# ch 6.6.1 ui.py
+# ch 7.7.2 ui.py
 
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout,
                              QMessageBox, QPlainTextEdit, QHBoxLayout,
@@ -29,7 +29,8 @@ class View(QWidget):
         self.le2.setAlignment(QtCore.Qt.AlignRight)
 
         self.cb = QComboBox(self)
-        self.cb.addItems(['+','-','*','/','^'])
+        # self.cb.addItems(['+','-','*','/','^'])
+        self.cb.addItems(['+','-','*','/'])
 
         hbox_formuler = QHBoxLayout()
         hbox_formuler.addWidget(self.le1)
