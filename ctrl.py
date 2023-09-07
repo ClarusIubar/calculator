@@ -7,14 +7,27 @@ class Control:
         self.connectSignals()
 
     def calculate(self): # calculate method
-        num1 = float(self.view.le1.text())
-        num2 = float(self.view.le2.text())
-        operator = self.view.cb.currentText() 
+        try: # 숫자가 아닌 값이 입력되었을 때도 프로그램이 동작하도록 예외처리
+            num1 = float(self.view.le1.text())
+            num2 = float(self.view.le2.text())
+            operator = self.view.cb.currentText() 
 
-        if operator == "+":
-            return f'{num1} + {num2} = {self.sum(num1, num2)}'
-        else:
-            return "Calculation error"
+            if operator == "+":
+                return f'{num1} + {num2} = {self.sum(num1, num2)}'
+            elif operator == "-":
+                return f'{num1} - {num2} = {self.sub(num1, num2)}'
+            elif operator == '*':
+                return f'{num1} * {num2} = {self.mul(num1, num2)}'
+            elif operator == '/':
+                return f'{num1} / {num2} = {self.div(num1, num2)}'
+            elif operator == '^':
+                return f'{num1} ^ {num2} = {self.pow(num1, num2)}'
+            elif operator == '%':
+                return f'{num1} % {num2} = {self.mod(num1, num2)}'
+            else:
+                return "Calculation error"
+        except:
+            return "Calculation Error"
     
     def connectSignals(self):
         self.view.btn1.clicked.connect(lambda: self.view.setDisplay(self.calculate()))
@@ -35,6 +48,7 @@ class Control:
                 raise Exception("Divisor Error")
         except Exception as e:
             return e
+        
         return a/b
 
     def pow(self, a, b):
@@ -45,3 +59,12 @@ class Control:
             return e
         
         return pow(a, b)
+    
+    def mod(self, a, b):
+        try:
+            if(b==0):
+                raise Exception("Divisor Error")
+        except Exception as e:
+            return e
+        
+        return a%b
